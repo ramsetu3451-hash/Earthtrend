@@ -1,0 +1,83 @@
+{
+  "status": "pass",
+  "checks": [
+    {
+      "id": "wind",
+      "bounds": [
+        -70,
+        0,
+        10,
+        60
+      ],
+      "n": 326,
+      "speed": 4.2406495154044155,
+      "maximumAbsoluteDifference": 7.993605777301127e-15,
+      "date": "2026-09-16T00:00:01Z"
+    },
+    {
+      "id": "wind",
+      "bounds": [
+        45,
+        100,
+        -30,
+        25
+      ],
+      "n": 284,
+      "speed": 6.058068212280345,
+      "maximumAbsoluteDifference": 4.440892098500626e-15,
+      "date": "2026-09-16T00:00:01Z"
+    },
+    {
+      "id": "wind",
+      "bounds": [
+        -160,
+        -80,
+        -30,
+        40
+      ],
+      "n": 550,
+      "speed": 4.731219449503387,
+      "maximumAbsoluteDifference": 9.769962616701378e-15,
+      "date": "2026-09-16T00:00:01Z"
+    },
+    {
+      "id": "currents",
+      "bounds": [
+        -70,
+        0,
+        10,
+        60
+      ],
+      "n": 755,
+      "speed": 0.12621917516526773,
+      "maximumAbsoluteDifference": 1.1102230246251565e-16,
+      "date": "2014-09-26T00:00:00Z"
+    },
+    {
+      "id": "currents",
+      "bounds": [
+        45,
+        100,
+        -30,
+        25
+      ],
+      "n": 661,
+      "speed": 0.2437463856078255,
+      "maximumAbsoluteDifference": 3.885780586188048e-16,
+      "date": "2014-09-26T00:00:00Z"
+    },
+    {
+      "id": "currents",
+      "bounds": [
+        -160,
+        -80,
+        -30,
+        40
+      ],
+      "n": 1301,
+      "speed": 0.17174549259247293,
+      "maximumAbsoluteDifference": 5.828670879282072e-16,
+      "date": "2014-09-26T00:00:00Z"
+    }
+  ]
+}

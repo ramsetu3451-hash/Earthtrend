@@ -1,0 +1,22 @@
+{
+  "status": "pass",
+  "states": [
+    "wind",
+    "real-vector animation has visible particles",
+    "invalid bounds have no region outline",
+    "temperature analysis and cross-layer navigation",
+    "JSON export",
+    "habitat",
+    "mobile-wind",
+    "mobile modal + Escape",
+    "mobile-habitat"
+  ],
+  "pageErrors": [],
+  "additionalStatesPreviouslyExercised": [
+    "currents globe and flat map with archive date",
+    "aerosol and chlorophyll imagery with no quantitative claims",
+    "official legends and date selection controls",
+    "source provenance panel"
+  ],
+  "note": "Fresh contexts used for software-WebGL screenshot stability."
+}

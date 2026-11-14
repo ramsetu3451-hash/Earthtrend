@@ -1,0 +1,5 @@
+{
+  "url": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdQCwindproductsMonthly.json?wind_u[(2026-09-16T00:00:01Z)][0][0:9:539][0:9:1079],wind_v[(2026-09-16T00:00:01Z)][0][0:9:539][0:9:1079]",
+  "metadata": "https://coastwatch.pfeg.noaa.gov/erddap/info/erdQCwindproductsMonthly/index.html",
+  "sha256": "3892ff3f0b287e667414f58d482889149809ed53e225bec10f6473c17cfaafb0"
+}

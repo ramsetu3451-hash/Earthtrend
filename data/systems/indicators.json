@@ -1,0 +1,56 @@
+[
+  {
+    "id": "air",
+    "gibsLayer": "MODIS_Terra_Aerosol",
+    "title": "Dark Target Aerosol Optical Depth (Land and Ocean, MODIS, Terra)",
+    "matrix": "GoogleMapsCompatible_Level6",
+    "defaultDate": "2026-10-28",
+    "minDate": "2000-02-24",
+    "maxDate": "2026-11-01",
+    "legendSource": "https://gibs.earthdata.nasa.gov/legends/MODIS_VIIRS_AOD_H.svg",
+    "timeIntervals": [
+      "2000-02-24/2000-08-06/P1D",
+      "2000-08-18/2001-06-15/P1D",
+      "2001-07-03/2002-03-19/P1D",
+      "2002-03-28/2003-12-16/P1D",
+      "2003-12-24/2008-12-20/P1D",
+      "2008-12-23/2016-02-18/P1D",
+      "2016-02-27/2022-10-10/P1D",
+      "2022-10-23/2026-11-01/P1D"
+    ],
+    "source": "https://earthdata.nasa.gov/gibs"
+  },
+  {
+    "id": "water",
+    "gibsLayer": "MODIS_Aqua_L2_Chlorophyll_A",
+    "title": "Chlorophyll A (L2, MODIS, Aqua)",
+    "matrix": "GoogleMapsCompatible_Level7",
+    "defaultDate": "2026-10-28",
+    "minDate": "2002-07-04",
+    "maxDate": "2026-11-01",
+    "legendSource": "https://gibs.earthdata.nasa.gov/legends/MODIS_Chlorophyll_H.svg",
+    "timeIntervals": [
+      "2002-07-04/2002-07-29/P1D",
+      "2002-08-06/2007-12-01/P1D",
+      "2007-12-03/2022-03-31/P1D",
+      "2022-04-14/2022-04-14/P1D",
+      "2022-04-16/2025-12-27/P1D",
+      "2025-12-29/2026-11-01/P1D"
+    ],
+    "source": "https://earthdata.nasa.gov/gibs"
+  },
+  {
+    "id": "habitat",
+    "gibsLayer": "MODIS_Aqua_L3_NDVI_Monthly",
+    "title": "Vegetation Index (Monthly, MODIS, Aqua)",
+    "matrix": "GoogleMapsCompatible_Level7",
+    "defaultDate": "2026-09-01",
+    "minDate": "2002-07-01",
+    "maxDate": "2026-09-01",
+    "legendSource": "https://gibs.earthdata.nasa.gov/legends/MODIS_L3_NDVI_H.svg",
+    "timeIntervals": [
+      "2002-07-01/2026-09-01/P1M"
+    ],
+    "source": "https://earthdata.nasa.gov/gibs"
+  }
+]

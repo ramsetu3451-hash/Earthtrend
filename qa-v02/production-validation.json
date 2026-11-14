@@ -1,0 +1,14 @@
+{
+  "status": "pass",
+  "checks": [
+    "embedded production frontend served",
+    "bundled NASA temperature loaded with no download",
+    "two numerical vector sources and three satellite sources available",
+    "real observation dates preserved",
+    "all three bundled overview PNG hashes match",
+    "Windows x64 cross-compiled PE executable; native Windows execution not tested",
+    "final executable runs from unrelated /tmp working directory",
+    "embedded frontend asset byte-matches final Vite build",
+    "final accelerated steady-field visualization included"
+  ]
+}

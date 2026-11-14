@@ -1,0 +1,15 @@
+{
+  "status": "pass",
+  "review": "Opened individual rendered PNGs at desktop and 390px widths. Reviewed globe and flat currents, wind, aerosol, chlorophyll, vegetation, source provenance, invalid region, temperature regression, methods, mobile layouts, and final animated wind.",
+  "checks": [
+    "controls and panels remain within viewport/page",
+    "mobile has no horizontal overflow",
+    "source date and current archive warning visible",
+    "imagery is real NASA data, gaps not recast as zero",
+    "no numerical pollution/habitat trend claims",
+    "readable scale summary and full-size official legend link",
+    "invalid bounds no longer draw a geographic selection",
+    "motion is explicitly accelerated and not a trajectory forecast"
+  ],
+  "note": "Software-WebGL screenshot timeout in earlier multi-layer contexts was resolved by scrolling the map into view and using fresh contexts."
+}

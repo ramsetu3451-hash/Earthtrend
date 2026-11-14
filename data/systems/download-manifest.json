@@ -1,0 +1,67 @@
+{
+  "release": "0.2.0",
+  "note": "Wind FNMOC candidate was rejected because all valid vectors were zero; bundled wind is actual ASCAT satellite data. OSCAR snapshot is historical 2014.",
+  "files": {
+    "indicators.json": {
+      "bytes": 1825,
+      "sha256": "222a6e1fc63d304d9b10941e487ecc9b18fe8b6fd533aba8af300f243d901102"
+    },
+    "water_overview.png": {
+      "bytes": 12395,
+      "sha256": "73a597c8d3c5baefce7c6cb94a0e57ea28a2bf3461938dee3be18e6b3b517dc8"
+    },
+    "air_legend.svg": {
+      "bytes": 297389,
+      "sha256": "9c7201e2b112d8f589170bb2958d7dcadb0712a3d6053a304ccb03c9eb594c01"
+    },
+    "air_overview.png": {
+      "bytes": 8057,
+      "sha256": "f59c07dd337e777796fa7bed296f9fe370b3bbb14747f8c0531f78d407493be7"
+    },
+    "habitat_legend.svg": {
+      "bytes": 274296,
+      "sha256": "0ee54cab30503c961c854f0f4eea72820ecc9e2ce0c17187e887ce8b6fdc3b0b"
+    },
+    "water_legend.svg": {
+      "bytes": 609308,
+      "sha256": "fdeea9b8b6f74817686dbbd37ade6c58692ae33f26c43874480c1cb7cab92176"
+    },
+    "habitat_overview.png": {
+      "bytes": 13373,
+      "sha256": "9b635fad5dbc122af0a63deb921c16d76bfa27c78098a4aa8c136e7c4de65b4c"
+    },
+    "currents_snapshot.json": {
+      "bytes": 1107738,
+      "sha256": "2724d3007e947fdf2d1e233a02460b8acc9e111d84304b026bc08aaa5b8b480a"
+    },
+    "wind_snapshot.json": {
+      "bytes": 625199,
+      "sha256": "3892ff3f0b287e667414f58d482889149809ed53e225bec10f6473c17cfaafb0"
+    },
+    "wind-source.json": {
+      "bytes": 376,
+      "sha256": "03fa279eeaeb3534166ceaa2b7599e2388b3d024a78d7d2af3ddb76e2bbc4dd8"
+    },
+    "erdQCwindproductsMonthly-metadata.json": {
+      "bytes": 18382,
+      "sha256": "82b7d20d64405a3c0247d39e3c03b3346ea6da037151b6b275ec2fc8853c27f6"
+    },
+    "jplOscar-metadata.json": {
+      "bytes": 8402,
+      "sha256": "21b04de2c96d74a84764c803ea5d8ad6032f199ad854fb8575f6ec7559e6156a"
+    }
+  },
+  "vectorSources": {
+    "wind": {
+      "url": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/erdQCwindproductsMonthly.json?wind_u[(2026-09-16T00:00:01Z)][0][0:9:539][0:9:1079],wind_v[(2026-09-16T00:00:01Z)][0][0:9:539][0:9:1079]",
+      "metadata": "https://coastwatch.pfeg.noaa.gov/erddap/info/erdQCwindproductsMonthly/index.html",
+      "sha256": "3892ff3f0b287e667414f58d482889149809ed53e225bec10f6473c17cfaafb0"
+    },
+    "currents": {
+      "url": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplOscar.json?u[(2014-09-26T00:00:00Z)][0][0:6:480][0:6:1079],v[(2014-09-26T00:00:00Z)][0][0:6:480][0:6:1079]",
+      "metadata": "https://coastwatch.pfeg.noaa.gov/erddap/info/jplOscar/index.html"
+    }
+  },
+  "imagerySourceTemplate": "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/{gibsLayer}/default/{defaultDate}/{matrix}/0/0/0.png",
+  "imageryMetadataFile": "indicators.json"
+}

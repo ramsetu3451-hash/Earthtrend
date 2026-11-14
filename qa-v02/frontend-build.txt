@@ -1,0 +1,18 @@
+
+> earthtrend-observatory@0.2.0 build
+> tsc -b && vite build
+
+vite v6.4.5 building for production...
+transforming...
+✓ 1585 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                     0.57 kB │ gzip:   0.37 kB
+dist/assets/index-CJauZsjF.css    108.80 kB │ gzip:  19.18 kB
+dist/assets/index-Bcr6cjxT.js   1,349.95 kB │ gzip: 375.44 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 5.59s

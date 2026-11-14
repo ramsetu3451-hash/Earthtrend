@@ -1,0 +1,101 @@
+{
+  "status": "pass",
+  "input": {
+    "source": "https://data.giss.nasa.gov/pub/gistemp/gistemp1200_GHCNv4_ERSSTv5.nc.gz",
+    "sha256": "44c8a2d358d73a5488232cedda387c6e6501671f9d2286b5c656f5a4efb43796",
+    "monthly_records": 1761,
+    "complete_years": [
+      1880,
+      2025
+    ],
+    "grid": [
+      90,
+      180
+    ],
+    "fill_value": 32767,
+    "scale_factor": 0.009999999776482582
+  },
+  "window": [
+    1981,
+    2025
+  ],
+  "regional_checks": [
+    {
+      "region": "Arctic",
+      "bounds": [
+        -180,
+        66,
+        180,
+        90
+      ],
+      "reference": {
+        "slopePerDecade": 0.7018462069472737,
+        "ciLow": 0.610418199383727,
+        "ciHigh": 0.7932742145108206,
+        "pValue": 3.687256409217604e-51
+      },
+      "status": "pass"
+    },
+    {
+      "region": "South Asia",
+      "bounds": [
+        65,
+        5,
+        95,
+        35
+      ],
+      "reference": {
+        "slopePerDecade": 0.22547197904233884,
+        "ciLow": 0.18840699825274657,
+        "ciHigh": 0.2625369598319311,
+        "pValue": 9.007169861331109e-33
+      },
+      "status": "pass"
+    },
+    {
+      "region": "North Atlantic",
+      "bounds": [
+        -60,
+        20,
+        -10,
+        60
+      ],
+      "reference": {
+        "slopePerDecade": 0.2444892652250325,
+        "ciLow": 0.1842178158753528,
+        "ciHigh": 0.30476071457471227,
+        "pValue": 1.8571057679933985e-15
+      },
+      "status": "pass"
+    },
+    {
+      "region": "Partial cell",
+      "bounds": [
+        72.3,
+        18.3,
+        74.7,
+        20.7
+      ],
+      "reference": {
+        "slopePerDecade": 0.19903807555145042,
+        "ciLow": 0.15067152788018834,
+        "ciHigh": 0.24740462322271253,
+        "pValue": 7.284952049083966e-16
+      },
+      "status": "pass"
+    }
+  ],
+  "global_field": {
+    "eligible_cells": 15870,
+    "bh_q_le_005_cells": 13039,
+    "max_slope_error": 6.661338147750939e-16,
+    "max_q_error": 9.992007221626409e-16
+  },
+  "invalid_request_checks": 4,
+  "reference": "SciPy NetCDF + Statsmodels OLS/HAC (normal approximation) and fdr_bh",
+  "limitations": [
+    "Statistical validation is not external scientific peer review.",
+    "Does not propagate the complete GISTEMP observational uncertainty ensemble.",
+    "BH spatial-dependence assumptions remain a limitation."
+  ]
+}

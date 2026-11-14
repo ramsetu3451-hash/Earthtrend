@@ -1,0 +1,41 @@
+{
+  "status": "pass",
+  "viewport": {
+    "desktop": [
+      1440,
+      980
+    ],
+    "mobile": [
+      390,
+      844
+    ]
+  },
+  "states": [
+    "desktop default real-data field",
+    "annual anomaly 2000 + flat projection",
+    "coverage map",
+    "South Asia selection + expanded annual observations",
+    "short interval validation",
+    "valid alternative period 1991\u20132025",
+    "methods dialog and Escape",
+    "dataset provenance",
+    "coordinate bounds + empty footprint state",
+    "two-click rectangle selection",
+    "CSV + reproducible JSON export",
+    "390px mobile no horizontal overflow",
+    "mobile methods"
+  ],
+  "screenshots": [
+    "desktop",
+    "flat-anomaly",
+    "coverage",
+    "regional-annual-record",
+    "methods",
+    "provenance",
+    "regional-no-data",
+    "mobile",
+    "mobile-methods"
+  ],
+  "pageErrors": [],
+  "supplementalModalCheck": "modal-validation.json"
+}

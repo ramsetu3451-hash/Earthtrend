@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "review": "Screenshots opened and individually inspected; defects repaired and replacement captures inspected.",
+  "states": {
+    "desktop": "pass \u2014 full globe and geographic outlines visible; controls, units, period, uncertainty and legend are legible; desktop panes intentionally scroll.",
+    "flat-anomaly": "pass \u2014 opaque heading and footer retain contrast against the anomaly field; anomaly year and regional trend interval are distinct.",
+    "coverage": "pass \u2014 coverage scale, country boundaries, legend and period are visible.",
+    "regional-annual-record": "pass \u2014 expanded, scrolled table has readable year/anomaly headers and signed observed values.",
+    "methods": "pass \u2014 ordered method sections and scrollable modal; normal-approximation and multiplicity limitations stated.",
+    "provenance": "pass \u2014 record extent, baseline, smoothing, file history and wrapping SHA are readable.",
+    "regional-no-data": "pass \u2014 selected bounds and explicit insufficient-footprint message; no fabricated result.",
+    "mobile": "pass \u2014 390px layout has no horizontal overflow; legend is separated from attribution; controls and inspector stack in reading order.",
+    "mobile-methods": "pass \u2014 repaired 366px dialog fits a 390px viewport; close control visible; text/math wrap with vertical scrolling."
+  },
+  "scope": "Visual/UI validation is not scientific peer review."
+}

@@ -1,0 +1,27 @@
+{
+  "status": "pass",
+  "checks": [
+    {
+      "width": 1440,
+      "height": 980,
+      "bounds": {
+        "x": 385,
+        "y": 58.796875,
+        "width": 670,
+        "height": 862.390625
+      },
+      "status": "pass"
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "bounds": {
+        "x": 12,
+        "y": 33.765625,
+        "width": 366,
+        "height": 776.46875
+      },
+      "status": "pass"
+    }
+  ]
+}
