@@ -4,3 +4,5 @@ data/*.nc
 *.log
 bin/
 qa/*.png
+*.tsbuildinfo
+.vercel/
