@@ -1,3 +1,3 @@
-module earthtrend
+module merobiman
 
 go 1.24

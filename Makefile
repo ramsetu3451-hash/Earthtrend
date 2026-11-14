@@ -4,7 +4,7 @@ build:
 	rm -rf backend/static
 	cp -R frontend/dist backend/static
 	mkdir -p bin
-	cd backend && go build -trimpath -o ../bin/earthtrend .
+	cd backend && go build -trimpath -o ../bin/merobiman .
 test:
 	cd backend && go test -race ./...
 dev:

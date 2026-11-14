@@ -1,6 +1,6 @@
-# EarthTrend Observatory — working milestone 02
+# Merobiman — working milestone 02
 
-Map-first Earth-system trend investigation, built for Dipendra's NASA Space Apps project.
+Map-first Earth-system trend investigation for the NASA Space Apps Challenge, by team Merobiman.
 **React + Tailwind CSS + TypeScript; Go backend; MapLibre globe/flat map; OpenStreetMap basemap.**
 
 This is a real-data, runnable research prototype—not a finished challenge submission,
@@ -19,16 +19,19 @@ All six layers are visible and selectable on the globe / flat map. **Not all lay
 | Water-quality indicator | NASA Aqua MODIS chlorophyll-a, 2026-10-28 default | NASA imagery, date selection, official legend | Pollution/safety diagnosis, toxin/pathogen readings, numerical trends/significance |
 | Habitat context | NASA Aqua MODIS monthly NDVI, September 2026 default | NASA vegetation imagery, month selection, official legend | Species suitability, biodiversity, habitat-loss inference, numerical trends/significance |
 
-The app opens on **Air streams**, so the new functionality is visible immediately. Switch to Climate for the original quantitative temperature investigation.
+The app opens on **temperature trend analysis**, following the challenge workflow: choose a variable, region and time period; view a time series; and inspect the p-value and significance at the 0.05 threshold. Only temperature currently supports quantitative time-series trends; the other layers are snapshots or visual indicators. Annual values are calculated from complete years of monthly GISTEMP data, not weekly or monthly observations.
+
+### AI assistance disclosure
+Notion AI assisted in developing and revising the code, tests, documentation, and project presentation. NASA and other source observations are not AI-generated. The human participant is responsible for reviewing the implementation, results, provenance, and submission.
 
 ### Windows: no installation or NASA download required
 
 Extract the entire archive (do not run the EXE inside the ZIP). Double-click **`start-windows.bat`**, then open **http://localhost:8080**. Stop with Ctrl+C.
 
-Or, in PowerShell from the extracted `earthtrend` folder:
+Or, in PowerShell from the extracted `merobiman` folder:
 
 ```powershell
-.\bin\earthtrend-windows-amd64.exe
+.\bin\merobiman-windows-amd64.exe
 ```
 
 If you prefer source development, the reported startup problem is fixed:
@@ -63,7 +66,7 @@ Source metadata: [ASCAT NOAA mirror](https://coastwatch.pfeg.noaa.gov/erddap/inf
 ## Quick start (Linux x86_64, no build tools required)
 
 ```sh
-chmod +x run.sh bin/earthtrend-linux-amd64
+chmod +x run.sh bin/merobiman-linux-amd64
 ./run.sh
 ```
 
@@ -86,9 +89,9 @@ cd ..
 rm -rf backend/static && cp -R frontend/dist backend/static
 cd backend
 go test ./...
-go build -o ../bin/earthtrend .
+go build -o ../bin/merobiman .
 cd ..
-./bin/earthtrend -data data/gistemp.nc.gz
+./bin/merobiman -data data/gistemp.nc.gz
 ```
 
 Windows PowerShell equivalent for the final build/copy steps:
@@ -98,9 +101,9 @@ Remove-Item backend/static -Recurse -Force
 Copy-Item frontend/dist backend/static -Recurse
 cd backend
 go test ./...
-go build -o ../bin/earthtrend.exe .
+go build -o ../bin/merobiman.exe .
 cd ..
-./bin/earthtrend.exe -data data/gistemp.nc.gz
+./bin/merobiman.exe -data data/gistemp.nc.gz
 ```
 
 `make build` does the frontend copy/build on systems with Make.

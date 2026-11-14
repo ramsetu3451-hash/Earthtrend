@@ -1,3 +1,4 @@
+import TrendGraph from "./TrendGraph";
 import { useEffect, useRef, useState } from "react";
 import maplibregl, {
   type GeoJSONSource,
@@ -61,6 +62,7 @@ type Trend = {
   nYears: number;
   hacLag: number;
   rSquared: number;
+  intercept: number;
 };
 type Result = {
   bounds: Bounds;
@@ -666,12 +668,12 @@ function App({ onLayerChange }: { onLayerChange: (id: string) => void }) {
       className={`app-shell antialiased ${projection === "mercator" ? "flat-map" : ""}`}
     >
       <header className="app-header">
-        <a className="brand" href="#" aria-label="EarthTrend home">
+        <a className="brand" href="#" aria-label="Merobiman home">
           <span className="brand-mark">
             <Earth size={25} />
           </span>
           <span>
-            earth<span className="brand-light">trend</span>
+            mero<span className="brand-light">biman</span>
             <small>EARTH SYSTEM OBSERVATORY</small>
           </span>
         </a>
@@ -908,7 +910,7 @@ function App({ onLayerChange }: { onLayerChange: (id: string) => void }) {
             </div>
             <h2>Follow the evidence.</h2>
             <label className="field-label" htmlFor="variable">
-              Earth-system variable
+              1 · Select a variable
             </label>
             <select
               id="variable"
@@ -923,121 +925,10 @@ function App({ onLayerChange }: { onLayerChange: (id: string) => void }) {
               <option value="water">Water quality · chlorophyll indicator</option>
               <option value="habitat">Habitat · vegetation indicator</option>
             </select>
-            <p className="field-help">NASA GISTEMP v4 · Land–Ocean Index</p>
-            <div className="section-divider" />
-            <span className="field-label">Map analysis</span>
-            <div
-              className="layer-options"
-              role="radiogroup"
-              aria-label="Map analysis layer"
-            >
-              {(
-                [
-                  {
-                    id: "trend",
-                    name: "Long-term trend",
-                    unit: "Change per decade",
-                    icon: ArrowUpRight,
-                  },
-                  {
-                    id: "anomaly",
-                    name: "Annual anomaly",
-                    unit: "Departure from the baseline",
-                    icon: Layers3,
-                  },
-                  {
-                    id: "coverage",
-                    name: "Data coverage",
-                    unit: "Check the evidence footprint",
-                    icon: ShieldCheck,
-                  },
-                ] as const
-              ).map((l) => (
-                <button
-                  role="radio"
-                  aria-checked={layer === l.id}
-                  key={l.id}
-                  className={`layer-option ${layer === l.id ? "active" : ""}`}
-                  onClick={() => setLayer(l.id)}
-                >
-                  <l.icon size={18} />
-                  <span>
-                    <strong>{l.name}</strong>
-                  </span>
-                  <i className="radio-mark">{layer === l.id && <span />}</i>
-                </button>
-              ))}
-            </div>
-            <div className="section-divider" />
-            <div className="label-row">
-              <label className="field-label" htmlFor="start">
-                Analysis period
-              </label>
-              <span className="quiet">≥ 30 years</span>
-            </div>
-            <div className="year-inputs">
-              <label>
-                <span>FROM</span>
-                <input
-                  id="start"
-                  type="number"
-                  min={src?.firstYear || 1880}
-                  max={draftEnd - 29}
-                  value={draftStart}
-                  onChange={(e) => setDraftStart(+e.target.value)}
-                />
-              </label>
-              <span className="year-to">—</span>
-              <label>
-                <span>THROUGH</span>
-                <input
-                  aria-label="End year"
-                  type="number"
-                  min={draftStart + 29}
-                  max={src?.lastCompleteYear || 2025}
-                  value={draftEnd}
-                  onChange={(e) => setDraftEnd(+e.target.value)}
-                />
-              </label>
-            </div>
-            {dirty && invalid && (
-              <p className="input-error" role="alert">
-                {invalid}
-              </p>
-            )}
-            <button
-              className="button apply-button"
-              disabled={!!invalid || fieldLoading || !dirty}
-              onClick={() => {
-                setStart(draftStart);
-                setEnd(draftEnd);
-                setYear(draftEnd);
-              }}
-            >
-              {fieldLoading ? (
-                <LoaderCircle size={16} className="spin" />
-              ) : (
-                <ArrowUpRight size={16} />
-              )}
-              Update analysis
-            </button>
-            <label
-              className={`toggle-row ${layer !== "trend" ? "muted-control" : ""}`}
-            >
-              <span>
-                <strong>Significance stippling</strong>
-                <small>Global BH-adjusted q ≤ 0.05</small>
-              </span>
-              <input
-                type="checkbox"
-                checked={evidence}
-                disabled={layer !== "trend"}
-                onChange={(e) => setEvidence(e.target.checked)}
-              />
-            </label>
+            <p className="field-help">NASA GISTEMP v4 · Land–Ocean Index. Only temperature supports quantitative trends; other layers show snapshots or imagery.</p>
             <div className="section-divider" />
             <label className="field-label" htmlFor="region">
-              Inspect a region
+              2 · Select a region
             </label>
             <select
               id="region"
@@ -1132,6 +1023,117 @@ function App({ onLayerChange }: { onLayerChange: (id: string) => void }) {
                 {notice}
               </p>
             )}
+            <div className="section-divider" />
+            <span className="field-label">Map analysis</span>
+            <div
+              className="layer-options"
+              role="radiogroup"
+              aria-label="Map analysis layer"
+            >
+              {(
+                [
+                  {
+                    id: "trend",
+                    name: "Long-term trend",
+                    unit: "Change per decade",
+                    icon: ArrowUpRight,
+                  },
+                  {
+                    id: "anomaly",
+                    name: "Annual anomaly",
+                    unit: "Departure from the baseline",
+                    icon: Layers3,
+                  },
+                  {
+                    id: "coverage",
+                    name: "Data coverage",
+                    unit: "Check the evidence footprint",
+                    icon: ShieldCheck,
+                  },
+                ] as const
+              ).map((l) => (
+                <button
+                  role="radio"
+                  aria-checked={layer === l.id}
+                  key={l.id}
+                  className={`layer-option ${layer === l.id ? "active" : ""}`}
+                  onClick={() => setLayer(l.id)}
+                >
+                  <l.icon size={18} />
+                  <span>
+                    <strong>{l.name}</strong>
+                  </span>
+                  <i className="radio-mark">{layer === l.id && <span />}</i>
+                </button>
+              ))}
+            </div>
+            <div className="section-divider" />
+            <div className="label-row">
+              <label className="field-label" htmlFor="start">
+                3 · Select a time period
+              </label>
+              <span className="quiet">≥ 30 years</span>
+            </div>
+            <div className="year-inputs">
+              <label>
+                <span>FROM</span>
+                <input
+                  id="start"
+                  type="number"
+                  min={src?.firstYear || 1880}
+                  max={draftEnd - 29}
+                  value={draftStart}
+                  onChange={(e) => setDraftStart(+e.target.value)}
+                />
+              </label>
+              <span className="year-to">—</span>
+              <label>
+                <span>THROUGH</span>
+                <input
+                  aria-label="End year"
+                  type="number"
+                  min={draftStart + 29}
+                  max={src?.lastCompleteYear || 2025}
+                  value={draftEnd}
+                  onChange={(e) => setDraftEnd(+e.target.value)}
+                />
+              </label>
+            </div>
+            {dirty && invalid && (
+              <p className="input-error" role="alert">
+                {invalid}
+              </p>
+            )}
+            <button
+              className="button apply-button"
+              disabled={!!invalid || fieldLoading || !dirty}
+              onClick={() => {
+                setStart(draftStart);
+                setEnd(draftEnd);
+                setYear(draftEnd);
+              }}
+            >
+              {fieldLoading ? (
+                <LoaderCircle size={16} className="spin" />
+              ) : (
+                <ArrowUpRight size={16} />
+              )}
+              Update analysis
+            </button>
+            <label
+              className={`toggle-row ${layer !== "trend" ? "muted-control" : ""}`}
+            >
+              <span>
+                <strong>Significance stippling</strong>
+                <small>Global BH-adjusted q ≤ 0.05</small>
+              </span>
+              <input
+                type="checkbox"
+                checked={evidence}
+                disabled={layer !== "trend"}
+                onChange={(e) => setEvidence(e.target.checked)}
+              />
+            </label>
             <button
               className="text-button mobile-provenance"
               onClick={() =>
@@ -1269,6 +1271,7 @@ function App({ onLayerChange }: { onLayerChange: (id: string) => void }) {
                           </strong>
                         </p>
                       </div>
+                      <TrendGraph region={regionName} series={result.series} model={result.trend} />
                       <div className="stat-grid">
                         <div>
                           <span>Annual values</span>
@@ -1292,12 +1295,14 @@ function App({ onLayerChange }: { onLayerChange: (id: string) => void }) {
                           </strong>
                         </div>
                       </div>
-                      <div className="evidence-note">
+                      <div className="evidence-note" aria-label="Statistical significance result">
                         <ShieldCheck size={16} />
                         <p>
-                          Regional evidence is <strong>unadjusted</strong> for
-                          repeated selections. Map stippling uses global
-                          BH-adjusted q-values.
+                          <strong>5 · Statistical significance:</strong>{" "}
+                          {result.trend.pValue < 0.05
+                            ? "Statistically significant at p < 0.05."
+                            : "Not statistically significant at p < 0.05."}{" "}
+                          This two-sided regional test uses Newey–West uncertainty and is unadjusted for repeated selections. Map stippling uses global BH-adjusted q-values. A trend does not establish its cause.
                         </p>
                       </div>
                       <button
@@ -1489,9 +1494,7 @@ function App({ onLayerChange }: { onLayerChange: (id: string) => void }) {
                 <strong>NASA GISTEMP v4</strong>
                 <br />
                 Land–Ocean Temperature Index · 2° grid · 1200 km smoothing.
-                Anomalies relative to 1951–1980. This prototype currently
-                implements temperature only; additional Earth-system variables
-                are not yet integrated.
+                Anomalies relative to 1951–1980. Temperature supports quantitative trends. Other Earth-system layers are available from the variable selector; satellite indicator imagery does not yet support numerical trends.
               </p>
             </div>
             <a

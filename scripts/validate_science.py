@@ -67,5 +67,5 @@ report={'status':'pass','input':{'source':'https://data.giss.nasa.gov/pub/gistem
 (ROOT/'qa/science-validation.json').write_text(json.dumps(report,indent=2))
 if os.environ.get('EVIDENCE_DIR'):
  evidence_dir=Path(os.environ['EVIDENCE_DIR']); evidence_dir.mkdir(parents=True,exist_ok=True)
- (evidence_dir/'earthtrend-validation.json').write_text(json.dumps(report,indent=2))
+ (evidence_dir/'merobiman-validation.json').write_text(json.dumps(report,indent=2))
 print(json.dumps({'status':'pass','regions':len(checks),'global_cells_checked':int(eligible.sum()),'max_slope_error':slope_error,'max_q_error':q_error,'invalid_requests':4}))

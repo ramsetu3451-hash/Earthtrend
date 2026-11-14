@@ -308,7 +308,7 @@ func serveRegion(w http.ResponseWriter, r *http.Request) {
 	}
 	if r.URL.Query().Get("format") == "csv" {
 		w.Header().Set("Content-Type", "text/csv")
-		w.Header().Set("Content-Disposition", "attachment; filename=earthtrend-region.csv")
+		w.Header().Set("Content-Disposition", "attachment; filename=merobiman-region.csv")
 		writer := csv.NewWriter(w)
 		defer writer.Flush()
 		writer.Write([]string{"year", "temperature_anomaly_c", "dataset_sha256", "start", "end", "west", "south", "east", "north", "method_version"})
@@ -318,7 +318,7 @@ func serveRegion(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if r.URL.Query().Get("download") == "1" {
-		w.Header().Set("Content-Disposition", "attachment; filename=earthtrend-analysis.json")
+		w.Header().Set("Content-Disposition", "attachment; filename=merobiman-analysis.json")
 	}
 	writeJSON(w, out)
 }
@@ -359,6 +359,6 @@ func main() {
 		w.Header().Set("X-Content-Type-Options", "nosniff")
 		mux.ServeHTTP(w, r)
 	}), ReadHeaderTimeout: 10 * time.Second, ReadTimeout: 30 * time.Second, WriteTimeout: 90 * time.Second, IdleTimeout: 60 * time.Second}
-	log.Printf("EarthTrend running at http://%s", *addr)
+	log.Printf("Merobiman running at http://%s", *addr)
 	log.Fatal(server.ListenAndServe())
 }

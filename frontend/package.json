@@ -1,5 +1,5 @@
 {
-  "name": "earthtrend-observatory",
+  "name": "merobiman",
   "private": true,
   "version": "0.2.0",
   "type": "module",
@@ -22,5 +22,6 @@
     "@vitejs/plugin-react": "^4.3.0",
     "vite": "^6.0.0",
     "typescript": "^5.7.0"
-  }
+  },
+  "aiAssistance": "Notion AI assisted in development of the source code, tests, and documentation; source observations are not AI-generated."
 }

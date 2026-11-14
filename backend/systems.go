@@ -205,7 +205,7 @@ func serveFlowAnalysis(w http.ResponseWriter, r *http.Request) {
 	}
 	u, v := us/sum, vs/sum
 	if r.URL.Query().Get("download") == "1" {
-		w.Header().Set("Content-Disposition", "attachment; filename=earthtrend-flow-analysis.json")
+		w.Header().Set("Content-Disposition", "attachment; filename=merobiman-flow-analysis.json")
 	}
 	writeJSON(w, map[string]any{"id": f.ID, "date": f.Date, "bounds": b, "sampleCount": n, "meanSampleSpeed": ss / sum, "meanU": u, "meanV": v, "meanVectorSpeed": math.Hypot(u, v), "bearingTo": vectorBearing(u, v), "units": "m/s", "method": "Cos(latitude)-weighted summary of valid sampled grid centers inside bounds; not exact region-integrated flux. Direction is TO, clockwise from north; opposite flows can cancel in the mean vector.", "source": f.Source, "sha256": f.SHA, "nativeGrid": f.Native, "limitations": f.Note, "significance": "Not estimated: a single temporal snapshot cannot establish a trend or its significance."})
 }

@@ -1921,3 +1921,30 @@ h2 {
 @media (prefers-reduced-motion:reduce){.systems-app *{scroll-behavior:auto!important;transition:none!important}}
 .sys-scale-link {display:inline-flex;min-height:44px;align-items:center;color:#d2f2b5;text-underline-offset:3px;font-size:14px}
 @media (max-width:700px){.sys-map{height:700px;min-height:700px}}
+:root{--chart-blue:#7fb4ec;--chart-purple:#bf8eda;--chart-grid:rgba(255,255,255,.14)}
+.trend-graph-section{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:20px 0;margin:20px 0}
+.trend-graph-heading,.trend-dialog-heading{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.trend-graph-heading h3{font-size:16px;font-weight:500;margin:0}
+.trend-graph-context,.trend-graph-note{font-size:14px;line-height:1.5;color:#b4c5c6;margin:12px 0}
+.trend-graph .legend{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:14px;line-height:20px;margin:0 0 12px;color:#c9d9d8}
+.trend-graph .key-line{display:inline-block;width:16px;border-top:2px solid;vertical-align:middle;margin-right:6px}
+.trend-graph .observed{border-color:var(--chart-blue)}.trend-graph .fitted{border-color:var(--chart-purple)}
+.trend-graph .chart-wrap{position:relative;width:100%;min-width:0}.trend-graph canvas{display:block;width:100%!important;max-width:100%}
+.trend-graph .chart-tooltip{position:absolute;z-index:2;max-width:min(320px,calc(100% - 8px));padding:10px;border:1px solid #64797d;border-radius:8px;background:#22353c;color:#e9f0ed;font-size:14px;line-height:20px;pointer-events:none;visibility:hidden;opacity:0;box-shadow:0 4px 12px #0003}
+.trend-graph .chart-tooltip[data-visible=true]{visibility:visible;opacity:1}
+.trend-graph .tip-title{margin-bottom:6px;font-size:14px;font-weight:600}
+.trend-graph .tip-row{display:grid;grid-template-columns:8px minmax(0,1fr) auto;align-items:center;column-gap:8px;min-width:160px}
+.trend-graph .tip-key{width:8px;height:8px;border-radius:1px}.trend-graph .tip-key[data-mark=line]{height:2px}
+.trend-graph .tip-label,.trend-graph .tip-extra{color:#c0cecf;overflow-wrap:anywhere;white-space:normal;min-width:0}
+.trend-graph .tip-value{white-space:nowrap;font-variant-numeric:tabular-nums;text-align:right;font-weight:500}
+.trend-graph .tip-extra{margin-top:8px;padding-top:6px;border-top:1px solid #52666b}
+.trend-graph-dialog{background:#152329;color:#e9f0ed;border:1px solid #698580;border-radius:10px;width:min(960px,calc(100% - 32px));max-width:calc(100% - 32px);max-height:92dvh;padding:28px;overflow-y:auto}
+.trend-graph-dialog::backdrop{background:#020c13c9;backdrop-filter:blur(6px)}
+.trend-dialog-heading{align-items:flex-start}.trend-dialog-heading h2{font-size:28px;line-height:1.25;font-weight:500;margin:8px 0 16px}
+.trend-dialog-heading .icon-button{flex-shrink:0;min-width:44px;min-height:44px}
+.graph-keyboard{margin-top:20px;padding-top:16px;border-top:1px solid #354a50}
+.graph-keyboard label{font-size:14px;display:block}.graph-keyboard input{width:100%;min-height:44px;accent-color:#d2f2b5}.graph-keyboard p{font-size:14px;color:#c0cecf;margin:8px 0}
+@media(max-width:520px){.trend-graph-dialog{padding:16px;width:calc(100% - 24px);max-width:calc(100% - 24px)}.trend-dialog-heading h2{font-size:24px}.trend-graph-heading{align-items:flex-start}.trend-graph-heading h3{max-width:150px}.trend-graph.expanded .chart-wrap{height:270px!important}}
+/* Native dialog centering and a layout-contained screen-reader data table. */
+.trend-graph-dialog{margin:auto}
+.trend-graph table.sr-only{display:block;max-width:1px;max-height:1px;contain:strict;clip-path:inset(50%)}
